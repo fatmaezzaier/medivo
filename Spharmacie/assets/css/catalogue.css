@@ -1,0 +1,259 @@
+/* ================================================================
+   Medivo — catalogue.css
+   ================================================================ */
+
+/* Filtres et Barre de recherche */
+.catalogue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.catalogue-title {
+    font-family: var(--font-titre);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--vert-fonce);
+}
+
+.catalogue-filters {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--gris-2);
+    border-radius: var(--rayon-sm);
+    background: var(--blanc);
+    color: var(--noir);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--vert);
+    color: var(--blanc);
+    border-color: var(--vert);
+}
+
+/* Grille de produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* Carte Produit */
+.product-card {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--rayon-lg);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    box-shadow: var(--ombre-lg);
+    transform: translateY(-8px);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--gris-2);
+}
+
+.product-image-fallback {
+    width: 100%;
+    height: 200px;
+    background: var(--gris-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gris-3);
+    font-size: 48px;
+    border-bottom: 1px solid var(--gris-2);
+}
+
+.product-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--or);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.product-name {
+    font-family: var(--font-titre);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--noir);
+    margin-bottom: 8px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: var(--gris-4);
+    flex: 1;
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    border-top: 1px solid var(--gris-2);
+    padding-top: 16px;
+}
+
+.product-price {
+    font-family: var(--font-titre);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--vert);
+}
+
+.product-stock {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stock-in {
+    color: var(--vert);
+}
+
+.stock-out {
+    color: var(--danger);
+}
+
+/* Les styles du Panier flottant ont été déplacés vers style.css */
+
+/* Page Panier */
+
+/* Page Panier */
+.cart-table {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+.cart-table th {
+    background: var(--gris-1);
+    color: var(--gris-4);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.cart-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--gris-2);
+    vertical-align: middle;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    color: var(--noir);
+}
+
+.qty-input {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid var(--gris-2);
+    border-radius: var(--rayon-sm);
+    text-align: center;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 18px;
+    transition: var(--transition);
+}
+
+.btn-remove:hover {
+    color: #a93226;
+}
+
+.cart-summary {
+    background: var(--vert-clair);
+    padding: 24px;
+    border-radius: var(--rayon-lg);
+    text-align: right;
+}
+
+.cart-total {
+    font-family: var(--font-titre);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--vert-fonce);
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .catalogue-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-table thead {
+        display: none;
+    }
+
+    .cart-table,
+    .cart-table tbody,
+    .cart-table tr,
+    .cart-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .cart-table tr {
+        margin-bottom: 16px;
+        border: 1px solid var(--gris-2);
+        border-radius: var(--rayon);
+        padding: 12px;
+    }
+
+    .cart-table td {
+        border-bottom: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .cart-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--gris-4);
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,97 @@
+/* ================================================================
+   Medivo — auth.css
+   Pages : connexion.php, inscription.php
+   ================================================================ */
+
+/* Séparateur "ou" */
+.auth-sep {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: var(--gris-3);
+    font-size: 13px;
+}
+
+.auth-sep::before,
+.auth-sep::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gris-2);
+}
+
+/* Indicateur force mot de passe */
+.password-strength {
+    height: 4px;
+    border-radius: 4px;
+    background: var(--gris-2);
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.password-strength-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width .3s ease, background .3s ease;
+    width: 0%;
+}
+
+.strength-faible {
+    width: 25%;
+    background: var(--danger);
+}
+
+.strength-moyen {
+    width: 50%;
+    background: var(--warning);
+}
+
+.strength-bon {
+    width: 75%;
+    background: var(--or);
+}
+
+.strength-fort {
+    width: 100%;
+    background: var(--vert-vif);
+}
+
+.strength-label {
+    font-size: 11px;
+    color: var(--gris-3);
+    margin-top: 4px;
+}
+
+/* Lien retour accueil */
+.auth-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--gris-3);
+    transition: var(--transition);
+}
+
+.auth-back:hover {
+    color: var(--vert);
+}
+
+/* Checkbox remember me */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gris-4);
+    margin: 4px 0 16px;
+}
+
+.form-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--vert);
+    cursor: pointer;
+}
