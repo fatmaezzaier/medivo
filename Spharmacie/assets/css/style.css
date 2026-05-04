@@ -1457,3 +1457,57 @@ header > div:first-child, .top-bar {
         max-width: 100%;
     }
 }
+/* ================================================================
+   FOOTER MOBILE FIX
+   ================================================================ */
+
+/* 1. Target the container holding the 4 columns */
+.footer-main, 
+.footer-grid, 
+.footer .container { 
+    display: flex !important;
+    flex-direction: column !important; /* Stack columns vertically */
+    align-items: center; /* Center everything */
+    text-align: center;
+    gap: 40px; /* Space between the stacked sections */
+    padding: 40px 20px;
+}
+
+/* 2. Fix the individual columns */
+.footer-col, 
+.footer-section {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* 3. Fix the contact list alignment (it's currently squashed) */
+.footer-col ul, 
+.footer-col div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* 4. Fix the blue lines (titles) so they stay centered */
+.footer-col h4::after, 
+.footer-col h3::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 5. Ensure the dark background stretches full width */
+.footer {
+    width: 100%;
+    overflow-x: hidden;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* 6. Fix for the contact info specifically */
+.contact-info {
+    text-align: center;
+    word-break: break-all; /* Prevents long emails from breaking the layout */
+}
