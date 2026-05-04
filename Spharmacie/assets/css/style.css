@@ -1375,3 +1375,85 @@ tbody tr.ligne-active {
     justify-content: center;
   }
 }
+/* ================================================================
+   FIXES FOR MOBILE RESPONSIVENESS
+   ================================================================ */
+
+/* 1. Fix the Top Info Bar (The icons at the very top) */
+/* If your HTML class is different, change '.top-bar' to your actual class */
+header > div:first-child, .top-bar { 
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    height: auto !important; /* Allow it to grow if items stack */
+    padding: 10px;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    /* 2. Fix the Navbar Height & Wrapping */
+    .navbar {
+        height: auto !important; /* Remove fixed height */
+    }
+
+    .navbar .container {
+        height: auto !important; /* Allow container to grow */
+        flex-wrap: wrap; /* Allow logo and buttons to stack */
+        padding: 15px;
+        justify-content: center; /* Center everything on mobile */
+        gap: 15px;
+    }
+
+    /* 3. Adjust the Logo area */
+    .navbar-brand {
+        margin-bottom: 5px;
+    }
+
+    /* 4. Fix the Buttons (Right side of navbar) */
+    .navbar-right {
+        width: 100%; /* Make buttons take full width to center them */
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* Make buttons slightly smaller so they fit side-by-side */
+    .navbar-right .btn {
+        padding: 8px 12px;
+        font-size: 13px;
+        flex: 1; /* Allow buttons to share width equally */
+        max-width: 150px;
+        justify-content: center;
+    }
+
+    /* 5. Re-enable links if you want them visible, but stacked */
+    .navbar-links {
+        display: flex !important; /* Show them (previously hidden in your CSS) */
+        width: 100%;
+        justify-content: center;
+        order: 3; /* Move links below the buttons */
+        margin-top: 10px;
+        border-top: 1px solid var(--gris-2);
+        padding-top: 10px;
+    }
+
+    /* 6. Ensure the Hero Image text doesn't overflow */
+    .hero {
+        height: auto;
+        min-height: 400px;
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 28px !important; /* Force smaller title on mobile */
+    }
+}
+
+/* Extra fix for very small phones */
+@media (max-width: 400px) {
+    .navbar-right {
+        flex-direction: column; /* Stack 'Login' and 'Sign up' on tiny phones */
+    }
+    .navbar-right .btn {
+        max-width: 100%;
+    }
+}
