@@ -53,7 +53,14 @@ $role = isset($_SESSION['utilisateur_role']) ? $_SESSION['utilisateur_role'] : n
             </div>
             <div>Medi<span style="color:var(--gris-4);font-weight:400">vo</span></div>
         </a>
-        <div class="navbar-right">
+        <!-- ADD THIS HAMBURGER BUTTON -->
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Ouvrir le menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="navbar-right" id="navbarRight">
             <a href="index.php" class="btn btn-ghost btn-sm active">Accueil</a>
             <a href="catalogue.php" class="btn btn-ghost btn-sm">Catalogue</a>
             <?php if (isset($_SESSION['utilisateur_id'])): ?>
