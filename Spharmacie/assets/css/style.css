@@ -1458,56 +1458,47 @@ header > div:first-child, .top-bar {
     }
 }
 /* ================================================================
-   FOOTER MOBILE FIX
+   FIXED FOOTER (Desktop = Horizontal / Mobile = Vertical)
    ================================================================ */
 
-/* 1. Target the container holding the 4 columns */
+/* This part ensures desktop stays horizontal */
 .footer-main, 
 .footer-grid, 
 .footer .container { 
-    display: flex !important;
-    flex-direction: column !important; /* Stack columns vertically */
-    align-items: center; /* Center everything */
-    text-align: center;
-    gap: 40px; /* Space between the stacked sections */
-    padding: 40px 20px;
-}
-
-/* 2. Fix the individual columns */
-.footer-col, 
-.footer-section {
-    width: 100% !important;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-/* 3. Fix the contact list alignment (it's currently squashed) */
-.footer-col ul, 
-.footer-col div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    flex-direction: row; /* Horizontal on Desktop */
+    justify-content: space-between;
+    align-items: flex-start;
+    text-align: left;
 }
 
-/* 4. Fix the blue lines (titles) so they stay centered */
-.footer-col h4::after, 
-.footer-col h3::after {
-    margin-left: auto;
-    margin-right: auto;
-}
+/* This part ONLY triggers on screens smaller than 768px */
+@media (max-width: 768px) {
+    .footer-main, 
+    .footer-grid, 
+    .footer .container { 
+        flex-direction: column !important; /* Stack vertically on Mobile */
+        align-items: center !important;
+        text-align: center !important;
+        gap: 40px;
+    }
 
-/* 5. Ensure the dark background stretches full width */
-.footer {
-    width: 100%;
-    overflow-x: hidden;
-    padding-left: 0;
-    padding-right: 0;
-}
+    .footer-col, 
+    .footer-section {
+        width: 100% !important;
+    }
 
-/* 6. Fix for the contact info specifically */
-.contact-info {
-    text-align: center;
-    word-break: break-all; /* Prevents long emails from breaking the layout */
+    /* Centers the blue lines under titles on mobile */
+    .footer-col h4::after, 
+    .footer-col h3::after {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Centers the contact icons/text on mobile */
+    .footer-col ul, 
+    .footer-col div {
+        align-items: center !important;
+        justify-content: center !important;
+    }
 }
